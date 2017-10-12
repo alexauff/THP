@@ -3,14 +3,35 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/"))   
-puts page.class
+def get_the_email_of_a_townhal_from_its_webpage(url)
 
-doc.xpath('//h3/@').each do |node|  #Find all "@" tags with a parent tag whose name is "..."
-	puts node.text
+	page = Nokogiri::HTML(open(url))
+	emails = page.css(".Style22").each do |line|
+		if line.text.include?("@")
+			puts line.text
+		end
+	end
+	#binding.pry #que si tu as un pb, pas systématique
+end
+
+def get_all_the_urls_of_val_doise_townhalls(urls)
+
+	#déclarer un tableau
+	bonus = []
+
+	page = Nokogiri::HTML(open(urls))
+	emails = page.xpath("//a[@class=\"lientxt\"]").each do |node|
+		puts node[:href]
+		#ajouter "http://annuaire-des-mairies.com/" + node[:href] au tableau
+		bonus << "http://annuaire-des-mairies.com/" + node[:href]
 	end
 
-binding.pry
+	return bonus
+	#renvoyer le tableau
+end
 
-puts page
+urls = "http://annuaire-des-mairies.com/val-d-oise.html"
+get_all_the_urls_of_val_doise_townhalls(urls).each do |townhall_url|
+	get_the_email_of_a_townhal_from_its_webpage(townhall_url)
+end
 
