@@ -23,7 +23,7 @@ def get_all_the_urls_of_val_doise_townhalls(urls)
 	emails = page.xpath("//a[@class=\"lientxt\"]").each do |node|
 		puts node[:href]
 		#ajouter "http://annuaire-des-mairies.com/" + node[:href] au tableau
-		bonus << "http://annuaire-des-mairies.com/" + node[:href]
+		bonus << "https://coinmarketcap.com/all/views/all/" + node[:href]
 	end
 
 	return bonus
