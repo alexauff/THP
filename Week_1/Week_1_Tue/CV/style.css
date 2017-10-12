@@ -1,0 +1,37 @@
+h1
+{
+    color: blue;
+}
+
+h2
+{
+    text-align: right;
+}
+
+body
+{
+	background-image: url("macviolet.png");
+    background-attachment: fixed; /* Le fond restera fixe */
+}
+
+@font-face {
+    font-family: 'PrincessSofia-Regular';
+    src: url('PrincessSofia-Regular.ttf') format('truetype');
+}
+
+h1 /* Utilisation de la police qu'on vient de définir sur les titres */
+{
+    font-family: 'PrincessSofia-Regular', Arial, serif;
+}
+
+figure
+{
+	border: 3px blue dashed;
+	text-shadow: 2px 2px 4px black;
+}
+
+
+
+
+
+

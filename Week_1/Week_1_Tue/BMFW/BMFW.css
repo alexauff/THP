@@ -1,0 +1,29 @@
+h1
+{
+    font-style: bold;
+    font-size: 35px;
+}
+
+p 
+{
+    font-size: 18px;
+}
+
+html
+{
+	color: #444;
+	width: 50%;
+	margin: auto;
+    text-align: justify;
+    line-height: 1.75;
+}
+
+.typo2
+{
+	font-family: monospace;
+}
+
+.nopuce
+{
+	font-size: 18px;
+}

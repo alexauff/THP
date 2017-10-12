@@ -1,0 +1,17 @@
+ul
+{
+    list-style-type: none;
+}
+
+#topsection, #menu
+{
+    display: flex;
+}
+
+p 
+{
+    text-align: justify;
+    width: 80%;
+    align-items: center;
+    margin: auto;
+}
