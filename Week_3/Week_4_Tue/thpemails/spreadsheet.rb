@@ -8,9 +8,9 @@ session = GoogleDrive::Session.from_config("client_secret.json")
 my_spreadsheet = session.spreadsheet_by_title("thpardeche")
 
 #pour éviter qu'il s'affiche plusieurs fois
-if my_spreadsheet.nil?
+	if my_spreadsheet.nil?
 	my_spreadsheet = session.create_spreadsheet("thpardeche")
-end
+	end
 
 #je me positionne dans le 1er worksheet que je renomme 
 first_worksheet = my_spreadsheet.worksheets[0]
@@ -24,14 +24,14 @@ emailing.each do |name_townhall, email|
 	first_worksheet[i,1] = name_townhall
 	first_worksheet[i,2] = email
 	i += 1
-end
+	end
 
 emailing2 = listing("http://annuaire-des-mairies.com/ardeche-2.html")
 emailing2.each do |name_townhall, email|
 	first_worksheet[i,1] = name_townhall
 	first_worksheet[i,2] = email
 	i += 1
-end 
+	end 
 
 #enregistrer travail
 first_worksheet.save
