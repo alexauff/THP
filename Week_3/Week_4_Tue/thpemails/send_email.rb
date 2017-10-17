@@ -1,5 +1,5 @@
-require "gmail"
 require "google_drive" #infos déjà sur google drive donc on require google drive
+require "gmail"
 
 def get_the_email_html
   file = {}
@@ -9,19 +9,18 @@ my_spreadsheet = session.spreadsheet_by_title ("thpardeche")
 
 #je me positionne dans le worksheet
 first_worksheet = my_spreadsheet.worksheets[0]
-first_worksheet.title = "Contacts"
 
 #récupère les infos du google drive
 (1..first_worksheet.num_rows).each do |row|
 file[first_worksheet[row,1]] = first_worksheet[row,2]
+   end
   return file
-  end
 end
 
 #envoyer un email methode 1
 def send_email_to_line(name_townhall,email)
   #se connecter au comptes
-gmail = Gmail.connect("auffalex@gmail.com", "hackingproject");
+gmail = Gmail.connect("auffalex@gmail.com", "hackingproject")
 
 gmail.deliver do
 
@@ -53,6 +52,6 @@ Le modèle d'éducation de <strong>The Hacking Project</strong> n'a pas de limit
   end
 end
 
-get_the_email_html.each do |name_townhall,email|
-send_email_to_line(name_townhall,email)
+get_the_email_html.each do |name_townhall, email|
+send_email_to_line(name_townhall, email)
   end
