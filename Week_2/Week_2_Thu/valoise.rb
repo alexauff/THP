@@ -21,13 +21,19 @@ def get_all_the_urls_of_val_doise_townhalls(urls)
 
 	page = Nokogiri::HTML(open(urls))
 	emails = page.xpath("//a[@class=\"lientxt\"]").each do |node|
-		puts node[:href]
+		#puts node[:href]
 		#ajouter "http://annuaire-des-mairies.com/" + node[:href] au tableau
-		bonus << "https://coinmarketcap.com/all/views/all/" + node[:href]
+		bonus << "http://annuaire-des-mairies.com/" + node[:href]
 	end
 
 	return bonus
 	#renvoyer le tableau
+
+	bonus.each do |townhall|
+  puts node[:name].to_s + " (" + node[:email].to_s + ")"
+
+end
+
 end
 
 urls = "http://annuaire-des-mairies.com/val-d-oise.html"

@@ -1,5 +1,5 @@
 require "google_drive"
-require_relative "retrievetownhalls.rb"
+require_relative "scrapping.rb"
 
 #créer la session avec les keys et id clients dans le .json
 session = GoogleDrive::Session.from_config("config.json")
