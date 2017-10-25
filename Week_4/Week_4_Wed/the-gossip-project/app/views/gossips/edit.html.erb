@@ -1,0 +1,48 @@
+<h1>Modifier le gossip</h1>
+ 
+<%= form_for(:gossip, url: gossip_path, method: :patch) do |f| %>
+  Auteur : <%= f.text_field :anonymoous_author %><br />
+  Contenu : <%= f.text_area :content %><br />
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Supprimer le gossip', @gossip, method: :delete %>
+<%= link_to 'Retour', root_path %>
+
+
+
+<!-- Autre méthode
+<%= form_with(model: @gossip, local: true) do |form| %>
+ 
+  <% if @gossip.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@gossip.errors.count, "error") %> on ne peut sauvegarder ce gossip:
+      </h2>
+      <ul>
+        <% @gossip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :auteur %><br>
+    <%= form.text_field :anonymoous_author %>
+  </p>
+ 
+  <p>
+    <%= form.label :contenu %><br>
+    <%= form.text_area :content %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Supprimer le gossip', @gossip, method: :delete %>
+<%= link_to 'Retour', gossips_path %>
+

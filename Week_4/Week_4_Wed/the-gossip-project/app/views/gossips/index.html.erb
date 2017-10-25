@@ -1,0 +1,16 @@
+<h1> Liste des gossips </h1>
+<table>
+  <tr>
+    <th>Auteur</th>
+    <th>Contenu</th>
+  </tr>
+ 
+  <% @gossips.each do |gossip| %>
+    <tr>
+      <td><%= gossip.anonymoous_author%></td>
+      <td><%= link_to gossip.content, gossip_path(gossip)%></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Ajouter un gossip', new_gossip_path %>
