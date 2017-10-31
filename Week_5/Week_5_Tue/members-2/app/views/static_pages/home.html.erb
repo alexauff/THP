@@ -1,0 +1,5 @@
+<h1>Chuuut c'est une page secrète ! Connectez-vous pour y accéder !</h1>
+
+<% if logged_in? %>
+	<p><a href='<%= secret_page_path %>'> découvre la page secrète !</a></p>
+	<% end %>

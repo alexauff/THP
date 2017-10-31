@@ -1,0 +1,9 @@
+<h1>Welcome</h1>
+
+<%= form_for :user, url: user_path, method: :patch do |f| %>
+ Email: <%= f.text_field :email %><br/>
+ Mot de passe: <%= f.text_field :password %><br/>
+ Confirmation du mot de passe: <%= f.text_field :password_confirmation %><br/>
+ <br/>
+ <%= f.submit %>
+<% end %>
